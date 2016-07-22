@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<% include partials/head %>
+</head>
+<body class="page-top">
+	<% include partials/header %>
+	<!-- Full Page Image Background Carousel Header -->
+    <header id="myCarousel" class="carousel slide">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for Slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <!-- Set the first background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('images/DSCF9508.jpg');"> 
+                </div>
+            </div>
+            <div class="item">
+                <!-- Set the second background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('images/DSC_4172.jpg');">
+                </div>
+            </div>
+            <div class="item">
+                <!-- Set the third background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('images/DSC_4709.jpg');">
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="icon-next"></span>
+        </a>
+
+    </header>
+
+    <!-- Page Content -->
+    <section class="bg-primary" id="keppnin">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-12">
+                <h1>Keppnin</h1>
+                    <h4 class="comp-text">
+                       Klaustur Off-Road Challenge er 6 tíma þolakstursmót. Keppnin er haldin að Ásgarði sem er rétt fyrir utan Kirkjubæjarklaustur. Startað er kl. 12:00 á hádegi og byrjað er að flagga keppendur út kl. 18:00. Árið 2016 verður keppnin haldin laugardaginn 28. maí.
+                    </h4>
+                    <hr class="comp-line">
+                    <h4 class="comp-text">
+                       Ef þú hefur gaman af því að aka torfæruhjóli er þetta klárlega viðburður fyrir þig og mögulega alla fjölskylduna. Þú skalt alls ekki láta orðin “mót“ eða “keppni“ draga þig frá því að taka þátt. Það er í raun bara afsökun fyrir því að koma saman og eiga góðan hjóladag. Að sama skapi þarf ekki að hafa áhyggjur af því að hafa ekki nógu mikla reynslu eða getu á hjólinu. Brautin er öllum fær. Í brautinni eru ekki þrautir sem krefjast mikillar reynslu og þekkingar. Brautin er að mestu leyti í grashólum og á sandeyrum. Grjótbrölt og þverbrattar brekkur er ekki að finna í þessari braut. Þetta hefst svo allt saman án þess að það komi niður á skemmtanagildinu.
+                    </h4>
+                    <hr class="comp-line">
+                    <h4 class="comp-text">
+                       Hér neðar á síðunni geturðu séð hvaða flokkar eru í boði og hvaða skilyrði þarf að uppfylla til þess að taka þátt. Ef þú ert yngri en 14 ára, skaltu fara enn neðar á síðuna og sjá hvort að þú getir ekki verið með í barnakeppninni.
+                    </h4>
+                    <hr class="comp-line">
+                    <h4 class="comp-text">
+                       Skráning fer fram á heimasíðu <a href="http://www.msisport.is">MSÍ</a>. Til þess að geta skráð þig þarft þú og liðsfélagar þínir að vera greiddir meðlimir í akstursíþróttafélagi innan MSÍ. Á höfuðborgarsvæðinu væri helst að nefna VÍK og MotoMos. Í vesturátt er hægt að leita til VÍFA uppi á Skaga. Fyrir austan fjall eru það UMF Selfoss/Þór Þorlákshöfn eða Hreppakappar í Hrunamannahreppi. Fyrir norðan er það KKA á Akureyri og austan er það Start á Egilstöðum. Leitið til ykkar félags um nánari upplýsingar varðandi greiðslu félagsgjalda og aðgang að síðu MSÍ. Ef VÍK er ykkar félag, sendið þá póst á vik@motocross.is
+                    </h4>
+                    <hr class="comp-line">
+                    <h4 class="comp-text">
+                       Skráðu þig, farðu yfir hjólið og svo sjáumst við á Klaustri. Þú sérð ekki eftir því.
+                    </h4>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- /.container -->
+
+    <section class="countdown">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h2 class="">Keppni hefst eftir:</h2>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div id="registrationClock">
+                    
+                    <div class="col-md-3 text-center">
+                        <h1 class="days"></h1>
+                        <hr class="primary">
+                        <div class="row">                            
+                            <h4>daga</h4>                            
+                        </div>
+                    </div>                    
+                    
+                    
+                    <div class="col-md-3 text-center">
+                        <h1 class="hours"></h1>
+                        <hr class="primary">
+                        <div class="row">                            
+                            <h4>tíma</h4>                            
+                        </div>
+                    </div>
+                
+                    
+                    
+                    <div class="col-md-3 text-center">
+                        <h1 class="minutes"></h1>
+                        <hr class="primary">
+                        <div class="row">                            
+                            <h4>mínútur</h4>                            
+                        </div>
+                    </div>
+                    
+                    
+                    
+                    <div class="col-md-3 text-center">
+                        <h1 class="seconds"></h1>
+                        <hr class="primary">
+                        <div class="row">
+                            <h4>sekúndur</h4>                            
+                        </div>    
+                    </div>
+                
+                                        
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-groups" id="flokkar">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Eftirfarandi flokkar eru í boði í Klaustur Off-Road Challenge.</h2>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-offset-1 col-md-2 right-group single-group">
+                    <div class="row text-center">
+                        <h3><u>Járnkarlinn</u></h3>
+                    </div>
+                    <div class="row text-center">
+                        <I>Harðasti flokkurinn</I>
+                    </div>
+                    <div class="row text-center">
+                        <b>1 keppandi</b>
+                    </div>
+                    <div class="row text-center">
+                        1 eða 2 hjól
+                    </div>
+                    <div class="row text-center">
+                        Verðlaun fyrir 1., 2. og 3. sæti
+                    </div>
+                    <div class="row text-center">
+                        Sérverðlaun fyrir 1. sætið í "Járnkonan"
+                    </div>                          
+                </div>
+                <div class="col-md-2 right-group single-group">
+                    <div class="row text-center">
+                        <h3><u>Tvímenningur</u></h3>
+                    </div>
+                    <div class="row text-center">
+                        <I>Vinsælasti flokkurinn</I>
+                    </div>
+                    <div class="row text-center">
+                        <b>2 keppendur</b>
+                    </div>
+                    <div class="row text-center">
+                        1 eða 2 hjól
+                    </div>
+                    <div class="row text-center">
+                        Verðlaun fyrir 1., 2. og 3. sæti
+                    </div>
+                </div>
+                <div class="col-md-2 right-group single-group">
+                    <div class="row text-center">
+                        <h3><u>Kvennaflokkur</u></h3>
+                    </div>
+                    <div class="row text-center">
+                        <I>Bara fyrir stelpurnar</I>
+                    </div>
+                    <div class="row text-center">
+                        <b>2 eða 3 keppendur</b>
+                    </div>
+                    <div class="row text-center">
+                        1 til 3 hjól
+                    </div>
+                    <div class="row text-center">
+                        Verðlaun fyrir 1., 2. og 3. sæti
+                    </div>
+                </div>
+                <div class="col-md-2 right-group single-group">
+                    <div class="row text-center">
+                        <h3><u>Þrímenningur</u></h3>
+                    </div>
+                    <div class="row text-center">
+                        <b>3 keppendur</b>
+                    </div>
+                    <div class="row text-center">
+                        1 til 3 hjól
+                    </div>
+                    <div class="row text-center">
+                        Verðlaun fyrir 1., 2. og 3. sæti
+                    </div>
+                </div>
+                <div class="col-md-2 single-group">
+                    <div class="row text-center">
+                        <h3><u>Afkvæmaflokkur</u></h3>
+                    </div>
+                    <div class="row text-center">
+                        <I>Foreldri og barn (14+)</I>
+                    </div>
+                    <div class="row text-center">
+                        <b>2 keppendur</b>
+                    </div>
+                    <div class="row text-center">
+                        1 eða 2 hjól
+                    </div>
+                    <div class="row text-center">
+                        Verðlaun fyrir 1., 2. og 3. sæti
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-offset-1 col-md-2 right-group single-group low-group">
+                    <div class="row text-center">
+                        <h2 class="para-hjon"><u>Para-/hjónaflokkur</u></h2 >
+                    </div>
+                    <div class="row text-center">
+                        <I>Hjón eða par</I>
+                    </div>
+                    <div class="row text-center">
+                        <b>2 keppendur</b>
+                    </div>
+                    <div class="row text-center">
+                        1 eða 2 hjól
+                    </div>
+                    <div class="row text-center">
+                        Verðlaun fyrir 1., 2. og 3. sæti
+                    </div>
+                </div>
+                <div class="col-md-2 single-group right-group low-group">
+                    <div class="row text-center">
+                        <h3><u>90+ flokkur</u></h3>
+                    </div>
+                    <div class="row text-center">
+                        <I>Samanlagður aldur keppenda skal vera yfir 90 árum og yngri keppandinn verður að hafa náð 35 ára aldri. Dagurinn gildir.</I>
+                    </div>
+                    <div class="row text-center">
+                        <b>2 keppendur</b>
+                    </div>
+                    <div class="row text-center">
+                        1 eða 2 hjól
+                    </div>
+                    <div class="row text-center">
+                        Verðlaun fyrir 1. sæti
+                    </div>
+                </div>
+                <div class="col-md-2 single-group right-group low-group">
+                    <div class="row text-center">
+                        <h3><u>100+ flokkur</u></h3>
+                    </div>
+                    <div class="row text-center">
+                        <I>Samanlagður aldur keppenda skal vera yfir 100 árum og yngri keppandinn verður að hafa náð 50 ára aldri. Dagurinn gildir.</I>
+                    </div>
+                    <div class="row text-center">
+                        <b>2 keppendur</b>
+                    </div>
+                    <div class="row text-center">
+                        1 eða 2 hjól
+                    </div>
+                    <div class="row text-center">
+                        Verðlaun fyrir 1. sæti
+                    </div>
+                </div>
+                <div class="col-md-2 single-group right-group low-group">
+                    <div class="row text-center">
+                        <h3><u>135+ flokkur</u></h3>
+                    </div>
+                    <div class="row text-center">
+                        <I>Samanlagður aldur keppenda skal vera yfir 135 árum og yngsti keppandinn verður að hafa náð 35 ára aldri. Dagurinn gildir.</I>
+                    </div>
+                    <div class="row text-center">
+                        <b>3 keppendur</b>
+                    </div>
+                    <div class="row text-center">
+                        1 til 3 hjól
+                    </div>
+                    <div class="row text-center">
+                        Verðlaun fyrir 1. sæti
+                    </div>
+                </div>
+                <div class="col-md-2 single-group low-group bottom-group">
+                    <div class="row text-center">
+                        <h3><u>150+ flokkur</u></h3>
+                    </div>
+                    <div class="row text-center">
+                        <I>Samanlagður aldur keppenda skal vera yfir 150 árum og yngsti keppandinn verður að hafa náð 50 ára aldri. Dagurinn gildir.</I>
+                    </div>
+                    <div class="row text-center">
+                        <b>3 keppendur</b>
+                    </div>
+                    <div class="row text-center">
+                        1 til 3 hjól
+                    </div>
+                    <div class="row text-center">
+                        Verðlaun fyrir 1. sæti
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <h4>Vinsamlegast athugið:</h4>
+            </div>
+            <div class="row">
+                <ul>
+                    <li>Hjól verða að vera skráð og tryggð.</li>
+                    <li>Keppandi sem misst hefur ökuréttindi hefur ekki réttindi til þess að taka þátt í keppninni.</li>
+                    <li>Minnsta leyfða vélarstærð er 122 rúmsentimetrar/cc tvígengis og fjórgengis og stærsta leyfða vélarstærð er 650 rúmsentimetrar/cc tvígengis og fjórgengis.</li>
+                    <li>Stærð afturdekks verður að vera 18 eða 19 tommur og framdekk verður að vera 21 tomma.</li>
+                    <li>Lágmarksaldur í flesta flokka er fjórtán ára og er miðað við afmælisdaginn. Nokkrir flokkar hafa þó hærri aldurstakmarkanir.</li>                    
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="bg-childGroups" id="barnakeppni">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="color-info">Barnakeppni</h1>
+                </div>                
+            </div>
+            <div class="row">
+                <div class="col-md-6 text-center">                    
+                    <div class="row">
+                        <ul class="list-unstyled">
+                            <h3 class="color-label">Flokkar (árið gildir):</h3>
+                            <li>
+                                <h4 class="color-info">8-9 ára</h4>
+                            </li>
+                            <li>
+                                <h4 class="color-info">10-11 ára</h4>
+                            </li>
+                            <li>
+                                <h4 class="color-info">12-13 ára</h4>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="row">
+                        <ul class="list-unstyled">
+                            <h3 class="color-label">Hjólastærðir:</h3>
+                            <li>
+                                <h4 class="color-info">50 – 125 cc. 2-stroke</h4>
+                            </li>
+                            <li>
+                                <h4 class="color-info">50 – 150 cc. 4-stroke</h4>
+                            </li>                           
+                        </ul>
+                    </div>
+                    <div class="row">
+                        <h3 class="color-label">Öll börn eru á ábyrgð foreldra.</h3>
+                    </div>    
+                </div>
+                    <div class="col-md-6 text-center">
+                        <div class="row">
+                            <h3 class="color-label">Dagskrá:</h3>
+                        </div>
+                        <div class="row">
+                            <h4 class="color-info">Mæting 9:00</h4>
+                        </div>
+                        <div class="row">
+                            <h4 class="color-info">Prufuhringur 9:20</h4>
+                        </div>
+                        <div class="row">
+                            <h4 class="color-info">Keppni hefst 10:00</h4>
+                        </div>
+                        <div class="row">
+                            <h4 class="color-info">Útflöggun 10:30</h4>
+                        </div>
+                        <div class="row">
+                            <h4 class="color-info">Verðlaun 10:50</h4>
+                        </div>
+                        <div class="row">
+                            <h3 class="color-label">Skráning á <u>guggi@ernir.is</u> og á staðnum.</h3>
+                        </div>
+                    </div>                
+            </div>
+        </div>
+    </section>
+
+	<% include partials/footer %>
+	
+</body>
+<script type="text/javascript">
+	function getTimeRemaining(endtime) {
+		var t = Date.parse(endtime) - Date.parse(new Date());
+		var seconds = Math.floor((t / 1000) % 60);
+		var minutes = Math.floor((t / 1000 / 60) % 60);
+		var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+		var days = Math.floor(t / (1000 * 60 * 60 * 24));
+		return {
+			'total': t,
+			'days': days,
+			'hours': hours,
+			'minutes': minutes,
+			'seconds': seconds
+		};
+	}
+
+	function initializeClock(id, endtime) {
+		var clock = document.getElementById(id);
+		var daysSpan = clock.querySelector('.days');
+		var hoursSpan = clock.querySelector('.hours');
+		var minutesSpan = clock.querySelector('.minutes');
+		var secondsSpan = clock.querySelector('.seconds');
+
+		function updateClock() {
+			var t = getTimeRemaining(endtime);
+
+			daysSpan.innerHTML = t.days;
+			hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+			minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+			secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+
+			if (t.total <= 0) {
+			  clearInterval(timeinterval);
+			}
+		}
+
+		updateClock();
+		var timeinterval = setInterval(updateClock, 1000);
+	}
+
+	var raceDeadline = "May 27 2017 12:00:00 GMT+0000";
+	var registrationDeadline = "May 24 2017 00:00:00 GMT+0000";
+
+	$(function() {
+		
+		initializeClock('registrationClock', raceDeadline);
+		initializeClock('raceClock', raceDeadline);
+	});
+
+
+	</script>	
+</html>

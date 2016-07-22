@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<% include partials/head %>
+</head>
+<body class="page-top">
+	<% include partials/header %>
+	<section class="">
+        <div class="container">
+            <div class="row group-selection">
+                <div class="col-md-12">
+					<select id="all-groups">
+						<option value="Allir">Allir</option>
+						<% groups.forEach(function(group) { %>
+					        <option value="<%= group.id %>"><%= group.name %></option>
+					    <% }); %>
+					</select>
+				</div>
+			</div>
+			<div class="row">
+                <div class="col-md-12">
+					<ul>
+						<% results.forEach(function(result) { %>
+					        <li data-group="<%= result.c_group %>"><%= result.name %></li>
+					    <% }); %>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<% include partials/footer %>
+</body>
+
+<script type="text/javascript">
+	$(function() {
+		$('#all-groups').on('change', function() {
+			var groupId = $(this).val();
+			$('li').each(function() {
+				if (groupId === 'Allir')
+				{
+					$(this).show();	
+				}
+				else
+				{
+					if ($(this).attr('data-group') !== groupId)
+					{
+						$(this).hide();
+					}
+					else
+					{
+						$(this).show();
+					}
+				}
+			});
+		});
+	});
+</script>
+</html>
