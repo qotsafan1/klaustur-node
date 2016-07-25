@@ -18,14 +18,29 @@
 				</div>
 			</div>
 			<div class="row">
-                <div class="col-md-12">
-					<ul>
-						<% results.forEach(function(result) { %>
-					        <li data-group="<%= result.c_group %>"><%= result.name %></li>
-					    <% }); %>
-					</ul>
-				</div>
+                <div class="col-sm-1 text-right">Sæti</div>
+                <div class="col-sm-3">Keppendur</div>
+                <div class="col-sm-1">Hringir</div>
 			</div>
+			<% 
+				var counter = 1;
+				results.forEach(function(result) { 
+			%>
+				<div class="row closed-div" data-result-id="<%= result.id %>" data-group="<%= result.c_group %>" data-db="false">
+	                <div class="row">
+		                <div class="col-sm-1 text-right counting-place"><%= counter %></div>
+		                <div class="col-sm-3"><%= result.name %></div>
+		                <div class="col-sm-1"><%= result.laps %></div>
+	                </div>
+	                <div class="row div-laptimes" style="visibility: 'hidden', display: 'none'">
+	                	
+	                </div>
+				</div>
+
+			<% 
+					counter++;
+				}); 
+			%>
 		</div>
 	</section>
 
@@ -36,10 +51,14 @@
 	$(function() {
 		$('#all-groups').on('change', function() {
 			var groupId = $(this).val();
-			$('li').each(function() {
+			var cnt = 1;
+			$('div[data-group]').each(function() {
 				if (groupId === 'Allir')
 				{
-					$(this).show();	
+					$(this).show();
+
+					$(this).find('.counting-place').text(cnt);
+					cnt++;	
 				}
 				else
 				{
@@ -50,10 +69,57 @@
 					else
 					{
 						$(this).show();
+
+						$(this).find('.counting-place').text(cnt);
+						cnt++;
 					}
 				}
 			});
 		});
+
+		$('div[data-group]').on('click', function() {
+			var resultId = $(this).attr('data-result-id');
+			var groupDiv = $(this);
+
+			if ($(this).hasClass('closed-div'))
+			{
+				if ($(this).attr('data-db') === 'false')
+				{
+					$.ajax({
+						url: '/laptimes',
+						data: {'id': resultId},
+						method: 'GET',
+						success: function(results) {
+							console.log(results);
+							if (results['results'] == true)
+							{
+								results['laptimes'].forEach(function(laptime) {
+									console.log(laptime.laptime);
+
+									groupDiv.find('.div-laptimes').append('<div>'+laptime.laptime+'</div>');
+								});
+								groupDiv.removeClass('closed-div').attr('data-db', 'true');
+								groupDiv.find('.div-laptimes').slideDown();
+							}
+						}, 
+						error: function(error)
+						{
+							console.log(error);
+						}
+					});				
+				}
+				else
+				{
+					$(this).removeClass('closed-div');
+					$(this).find('.div-laptimes').slideDown();
+				}
+			}
+			else
+			{
+				$(this).addClass('closed-div');	
+				$(this).find('.div-laptimes').slideUp();
+			}
+		})
 	});
 </script>
 </html>
