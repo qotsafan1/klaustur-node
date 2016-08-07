@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<% include partials/head %>
+</head>
+<body class="page-top">
+	<% include partials/header %>
+	<section class="">
+        <div class="container">
+        	<div class="group-selection">
+	            <% 
+	            	var names = ['K6 Tvímenningur', 'K6 - 150+ flokkur', 'K6 Afkvæmaflokkur', 'K6 - Para/hjónaflokkur', 'K6 Þrímenningur', 'K6 - Járnkellan', 'K6 Járnkallinn', 'K6 Kvennaflokkur', 'K6 90+ flokkur', 'K6 - 100+ flokkur'];
+
+	            	var times = 1;
+	            	var total = 0;
+	            	var totalContestants = 0;
+
+	            	for (var groupName in groupsContestants) {
+	           			var groupTotal = 0;
+
+	           			switch(groupName) {
+						    case 'K6 Tvímenningur':
+						        times = 2;
+						        break;
+						    case 'K6 - 150+ flokkur':
+						        times = 3;
+						        break;
+						    case 'K6 Afkvæmaflokkur':
+						        times = 2;
+						        break;
+						    case 'K6 - Para/hjónaflokkur':
+						        times = 2;
+						        break;
+						    case 'K6 Þrímenningur':
+						        times = 3;
+						        break;
+						    case 'K6 Kvennaflokkur':
+						        times = 2;
+						        break;
+						    case 'K6 90+ flokkur':
+						        times = 2;
+						        break;
+						    case 'K6 - 100+ flokkur':
+						        times = 2;
+						        break;    
+						    default:
+						        times = 1;
+						}
+	            %>
+	        			<div class="row"><h1><%= groupName %></h1></div>
+		            	<%	
+		            		groupsContestants[groupName].forEach(function(contestant) {
+		            	%>
+		            			<div class="row">
+		            				<div class="col-xs-1"><b><%= contestant.number %></b></div> 
+		            				<div class="col-xs-9"><%= contestant.name %></div>
+		            			</div>
+		        		<%
+		        				groupTotal++;
+		            		});
+		            	%>
+		            	<div class="row">Alls lið: <%= groupTotal %></div>
+		            	<div class="row">Alls keppendur: <%= (groupTotal*times) %></div>
+		        <%
+		            		total += groupTotal; 
+		            		totalContestants += (groupTotal*times);
+	            	}
+	            %>
+	            <div class="row">Alls lið: <%= total %></div>
+	            <div class="row">Alls keppendur: <%= totalContestants %></div>
+        	</div>
+		</div>
+		<br><br>
+	</section>
+
+	<% include partials/footer %>
+</body>
+
+<script type="text/javascript">
+	$(function() {
+	
+	});
+</script>
+</html>

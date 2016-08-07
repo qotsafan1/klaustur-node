@@ -175,6 +175,17 @@ div.results
     padding-top: 10px;
 }
 
+div.closed-div
+{
+    background-color: #505050;
+    color: white;
+}
+
+section.results-section
+{
+    min-height: 70%;
+}
+
 @media (max-width: 991px)
 {
     .single-group

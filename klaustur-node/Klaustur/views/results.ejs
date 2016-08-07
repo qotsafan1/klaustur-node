@@ -5,7 +5,7 @@
 </head>
 <body class="page-top">
 	<% include partials/header %>
-	<section class="">
+	<section class="results-section">
         <div class="container">
             <div class="row group-selection">
                 <div class="col-md-12">
@@ -18,9 +18,10 @@
 				</div>
 			</div>
 			<div class="row">
-                <div class="col-sm-1 text-right">Sæti</div>
-                <div class="col-sm-3">Keppendur</div>
-                <div class="col-sm-1">Hringir</div>
+				<div class="col-xs-1"></div>
+                <div class="col-xs-1" style="padding-left: 0"><b>Sæti</b></div>
+                <div class="col-xs-7"><b>Keppendur</b></div>
+                <div class="col-xs-1"><b>Hringir</b></div>
 			</div>
 			<% 
 				var counter = 1;
@@ -28,12 +29,20 @@
 			%>
 				<div class="row closed-div" data-result-id="<%= result.id %>" data-group="<%= result.c_group %>" data-db="false">
 	                <div class="row">
-		                <div class="col-sm-1 text-right counting-place"><%= counter %></div>
-		                <div class="col-sm-3"><%= result.name %></div>
-		                <div class="col-sm-1"><%= result.laps %></div>
+	                	<div class="col-xs-1"></div>
+		                <div class="col-xs-1 counting-place"><%= counter %></div>
+		                <div class="col-xs-7"><%= result.name %></div>
+		                <div class="col-xs-1"><%= result.laps %></div>
 	                </div>
-	                <div class="row div-laptimes" style="visibility: 'hidden', display: 'none'">
-	                	
+	                <div class="div-laptimes col-lg-12">
+	                	<div class="row">
+	                		<div class="col-xs-1"></div>
+	                		<div class="col-xs-8"><b>Flokkur: </b><%= groups[result.c_group-1].name %></div>
+	                	</div>
+	                	<div class="row">
+	                		<div class="col-xs-1"></div>
+	                		<div class="col-xs-8"><b>Heildartími: </b><%= result.total_time %></div>
+	                	</div>
 	                </div>
 				</div>
 
@@ -42,6 +51,7 @@
 				}); 
 			%>
 		</div>
+		<br><br>
 	</section>
 
 	<% include partials/footer %>
@@ -49,25 +59,20 @@
 
 <script type="text/javascript">
 	$(function() {
+		$('.div-laptimes').hide();
 		$('#all-groups').on('change', function() {
 			var groupId = $(this).val();
 			var cnt = 1;
 			$('div[data-group]').each(function() {
-				if (groupId === 'Allir')
-				{
+				if (groupId === 'Allir') {
 					$(this).show();
 
 					$(this).find('.counting-place').text(cnt);
 					cnt++;	
-				}
-				else
-				{
-					if ($(this).attr('data-group') !== groupId)
-					{
+				} else {
+					if ($(this).attr('data-group') !== groupId) {
 						$(this).hide();
-					}
-					else
-					{
+					} else {
 						$(this).show();
 
 						$(this).find('.counting-place').text(cnt);
@@ -81,41 +86,53 @@
 			var resultId = $(this).attr('data-result-id');
 			var groupDiv = $(this);
 
-			if ($(this).hasClass('closed-div'))
-			{
-				if ($(this).attr('data-db') === 'false')
-				{
+			if ($(this).hasClass('closed-div')) {
+				if ($(this).attr('data-db') === 'false') {
 					$.ajax({
 						url: '/laptimes',
 						data: {'id': resultId},
 						method: 'GET',
 						success: function(results) {
 							console.log(results);
-							if (results['results'] == true)
-							{
+							var divString = '';
+							var cnt = 0;
+							var lap = 1;
+
+							if (results['results'] == true)	{
 								results['laptimes'].forEach(function(laptime) {
 									console.log(laptime.laptime);
 
-									groupDiv.find('.div-laptimes').append('<div>'+laptime.laptime+'</div>');
+									if (cnt === 0) {
+										//groupDiv.find('.div-laptimes').append
+										divString += '<div class="row"><div class="col-xs-1"></div>';
+									}
+
+									//groupDiv.find('.div-laptimes').append
+									divString += '<div class="col-xs-3"><b>'+lap+') </b>'+laptime.laptime+'</div>';
+
+									if (cnt === 2) {
+										//groupDiv.find('.div-laptimes').append
+										divString += '</div>';
+										cnt = 0;
+									} else {
+										cnt++;
+									}
+									lap++;
 								});
+								groupDiv.find('.div-laptimes').append(divString);
 								groupDiv.removeClass('closed-div').attr('data-db', 'true');
 								groupDiv.find('.div-laptimes').slideDown();
 							}
 						}, 
-						error: function(error)
-						{
+						error: function(error) {
 							console.log(error);
 						}
 					});				
-				}
-				else
-				{
+				} else {
 					$(this).removeClass('closed-div');
 					$(this).find('.div-laptimes').slideDown();
 				}
-			}
-			else
-			{
+			} else {
 				$(this).addClass('closed-div');	
 				$(this).find('.div-laptimes').slideUp();
 			}
